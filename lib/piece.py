@@ -44,7 +44,7 @@ class Piece(pygame.sprite.Sprite):
     new_piece.rect = new_piece.surface.get_rect()
     new_piece.notation =  self.notation 
 
-    if self.ptype == "PAWN":
+    if self.ptype == g_types.PieceType.PAWN:
       new_piece.enpassantable = self.enpassantable 
       new_piece.snapshot = self.snapshot 
 

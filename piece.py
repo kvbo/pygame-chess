@@ -12,6 +12,7 @@ class Pawn(piece.Piece):
     self.enpassantable = False
     self.snapshot = None
     self.notation = "p"
+    
     super().__init__(g_types.PieceType.PAWN, f"./assets/Chess_p{ext[turn]}45.svg", [
       PawnBasic,
       PawnLeap,

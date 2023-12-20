@@ -1,5 +1,9 @@
 from functools import wraps
 from time import time
+from typing import List, Tuple
+import math
+from lib import constants
+
 
 def warp(val, max_len):
   if val < max_len:
@@ -17,3 +21,14 @@ def timing(f):
       (f.__name__, te-ts))
     return result
   return wrap
+
+
+def normalize(pos: Tuple, to_pos=False):
+  left = math.floor(pos[0] / constants.SQUARE_WIDTH) 
+  top =math.floor(pos[1] / constants.SQUARE_HEIGHT) 
+  
+  if not to_pos:
+    left *= constants.SQUARE_WIDTH
+    top *= constants.SQUARE_HEIGHT
+    
+  return (left, top)

@@ -93,7 +93,7 @@ class PawnEnpassantCapture(metaclass=g_types.Move):
       and new_tile.piece == None \
       and tile.piece \
       and tile.piece.ptype == g_types.PieceType.PAWN \
-      and tile.piece.enpassantable\
+      and tile.piece.enpassantable \
       and tile.piece.snapshot == kwargs["game"].moves_count:
       
       kwargs["game"].post_action = lambda: PawnEnpassantCapture.remove_captured(tile)
