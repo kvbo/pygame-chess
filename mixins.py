@@ -138,8 +138,11 @@ class GameplayMixin:
         
         elif square.piece.ptype not in tuple_to_check:
           return True
+
+        elif square.piece.turn != king_square.piece.turn and square.piece.ptype in tuple_to_check[:2]:
+          return True
         
-        if step_count == 1 and square.piece.ptype in tuple_to_check[:2]:
+        elif step_count == 1 and square.piece.ptype in tuple_to_check[:2]:
           if square.piece.ptype == g_types.PieceType.PAWN:
 
             dir = -1 if square.piece.turn == "black" else 1
@@ -151,7 +154,7 @@ class GameplayMixin:
             self.selected.append(square)
           return True
         
-        if square.piece.ptype in tuple_to_check[2:]:
+        elif square.piece.ptype in tuple_to_check[2:]:
           self.selected.append(square)
           return True
         
