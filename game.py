@@ -218,18 +218,17 @@ class Game(mixins.CopyBoardMixin, mixins.GameplayMixin, SFXMixin):
     _ = ["white", "black"]
 
     self.turn = _[ warp(self.moves_count, 2 )]
-    print(self.turn, self.moves_count, warp(self.moves_count, 2 ) )
     self._moves_count = value 
 
   def init(self):
     for turn in ['white', 'black']:
       col = 0 if turn == "black" else 7
       power_pieces = [
+        King, 
+        Queen, 
         Rook,
         Knight, 
         Bishop, 
-        King, 
-        Queen, 
         Bishop, 
         Knight, 
         Rook
